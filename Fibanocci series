@@ -1,22 +1,3 @@
-pseudo: 
-    Input n
-    if n <= 0
-        Print "Invalid input"
-    else if n == 1
-        Print 0
-    else if n == 2
-        Print 0, 1
-    else
-        a = 0
-        b = 1
-        Print a, b
-        for i = 3 to n
-            c = a + b
-            Print c
-            a = b
-            b = c
-
-
 pseudo: routine 
     Function GenerateFibonacci(n)
         if n <= 0
@@ -47,6 +28,4 @@ pseudo: routine test
             Print fibSeries
 
 
-pseudo: routine test
-        Read n from the user
-        fibSeries = GenerateFibonacci(n)
+
