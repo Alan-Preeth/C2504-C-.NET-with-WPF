@@ -1,1 +1,16 @@
 
+pseudo: routine
+    Function FindSquare(num)
+        square = num * num * num
+        Return square
+
+pseudo: routine test
+    Procedure TestFindSquare()
+        Input num
+        square = FindSquare(num)
+        Print square
+
+
+pseudo: routine test
+        Input num
+        square = FindSquare(num)
