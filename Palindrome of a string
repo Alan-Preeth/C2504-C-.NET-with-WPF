@@ -1,0 +1,49 @@
+pseudo: 
+    Input string
+    length = getLength(string)
+    
+    reversedString = ""
+    for i = length - 1 down to 0
+        reversedString = reversedString + string[i]
+    
+    if string == reversedString
+        Print "The string is a palindrome"
+    else
+        Print "The string is not a palindrome"
+
+
+pseudo: routine 
+    Function ReverseString(string)
+        length = getLength(string)
+        reversedString = ""
+        for i = length - 1 to 0
+            reversedString = reversedString + string[i]
+        Return reversedString
+
+
+pseudo: routine 
+    Function CheckPalindrome(string)
+        length = getLength(string)
+        reversedString = ReverseString(string)
+        
+        if string == reversedString
+            Return true
+        else
+            Return false
+    
+
+pseudo: routine test
+    Procedure TestCheckPalindrome()
+        Input string
+        isPalindrome = CheckPalindrome(string)
+        if isPalindrome
+            Print "The string is a palindrome"
+        else
+            Print "The string is not a palindrome"
+
+
+pseudo: routine test
+    Procedure TestCheckPalindromeFromDB()
+        Read string of the first row from "strings" table of sqlite database "compute_db"
+        isPalindrome = CheckPalindrome(string)
+        Update palindrome_status column of the first row of the strings table with isPalindrome
