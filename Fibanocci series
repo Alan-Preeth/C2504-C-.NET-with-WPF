@@ -1,0 +1,52 @@
+pseudo: 
+    Input n
+    if n <= 0
+        Print "Invalid input"
+    else if n == 1
+        Print 0
+    else if n == 2
+        Print 0, 1
+    else
+        a = 0
+        b = 1
+        Print a, b
+        for i = 3 to n
+            c = a + b
+            Print c
+            a = b
+            b = c
+
+
+pseudo: routine 
+    Function GenerateFibonacci(n)
+        if n <= 0
+            Return "Invalid input"
+        else if n == 1
+            Return [0]
+        else if n == 2
+            Return [0, 1]
+        else
+            fibSeries = [0, 1]
+            a = 0
+            b = 1
+            for i = 3 to n
+                c = a + b
+                fibSeries = fibSeries + [c]  # Concatenate the new value
+                a = b
+                b = c
+            Return fibSeries
+
+
+pseudo: routine test
+    Procedure TestGenerateFibonacci()
+        Input n
+        fibSeries = GenerateFibonacci(n)
+        if fibSeries == "Invalid input"
+            Print "Invalid input"
+        else
+            Print fibSeries
+
+
+pseudo: routine test
+        Read n from the user
+        fibSeries = GenerateFibonacci(n)
