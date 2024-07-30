@@ -1,7 +1,4 @@
-pseudo:
-    Input num
-    square = num * num
-    Print square
+
 
 pseudo: routine
     Function FindSquare(num)
@@ -16,6 +13,5 @@ pseudo: routine test
 
 
 pseudo: routine test
-    Procedure TestFindSquare2()
         Input num
         square = FindSquare(num)
