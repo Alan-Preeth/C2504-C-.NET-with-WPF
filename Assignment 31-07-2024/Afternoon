@@ -1,0 +1,194 @@
+1-FizzBuzz problem: For numbers 1 to 100, print "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both.
+
+iterate from 1-100
+
+if(num%3==0 && num %5 ==0)
+print "FrizzBuzz"
+
+elseif(num%3 == 0)
+print"Fizz"
+
+elseif(num%5 == 0)
+print"buzz"
+
+else
+print("Not divisible by 3 and 5)
+
+--------------------------------------------------------------------------------
+2-Check whether a string  is palinfrome or not
+
+accept a String S;
+convert the string to full upper case or not;
+reversedstring=reverseString(S);
+then check whether both the strings are same and print accordingly
+
+a more elaborated one
+
+---
+accept a String S;
+convert the string to full upper case or not;
+initialise another String new;
+int l= S.length();
+for(i=S.length;i>0;i--)
+{
+char ch=S.chartAt(i);
+new=new+ch;
+}
+if(S.equals(new))
+{
+print paliandrome
+}
+else
+{
+print not palindrome
+}
+
+
+----------------------------
+3-Discount calculator
+
+
+CalculateTotalCost(shoppingCart, discountThreshold, discountRate)
+    Initilaise totalCost = 0
+
+    FOR EACH item IN shoppingCart
+        totalCost <- totalCost + item.price * item.quantity
+    END FOR
+
+    IF totalCost > discountThreshold THEN
+        discount <- totalCost * discountRate
+        totalCost <- totalCost - discount
+    END IF
+
+    RETURN totalCost
+END FUNCTION
+
+Input an array shopping cart
+shoppingCart = that contains item price and quantity
+
+
+int discountlimit =50 
+double discountRate = 0.10 
+double totalCost = CalculateTotalCost(shoppingCart, discountThreshold, discountRate)
+PRINT "Total Cost: " + totalCost
+
+END
+
+
+-----------------------------------
+4- find largest number in an array:
+
+initialise an double array arr[];
+double max=arr[0]
+int len=arr.length;
+for(int i=1;i<len;i++)
+{
+if(arr[i]>max)
+{
+ max=arr[i]
+}
+}
+print max;
+--------------------------------
+5-Bank Account ManagementWrite pseudocode to manage a simple bank account that allows deposits, withdrawals, and checking the balance.
+
+double balance; // for storing the balance
+
+print("Choose d for deposit, w for withdrawal, b for checking balance")
+char choice; // for accepting the choice from the user
+
+switch (choice)
+
+ {
+    case 'd':
+
+
+        print("Enter the amount you want to deposit")
+        double deposit; // variable to store the deposit amount
+        balance = balance + deposit;
+        print("Your new balance is: ", balance)
+        break;
+
+    case 'w':
+        print("Enter the amount you want to withdraw")
+        double withdrawal; // variable to store the withdrawal amount
+         if (withdrawal <= balance) 
+{
+            balance = balance - withdrawal;
+            print("Your new balance is: ", balance)
+        }
+    else {
+            print("Insufficient funds")
+        }
+        break;
+
+    case 'b':
+        print("Your balance is: ", balance)
+        break;
+
+    default:
+        print("Invalid choice")
+}
+
+
+
+
+
+----------------------------------------------------------
+
+
+6-sum of first n even numbers
+
+BEGIN
+
+DECLARE limit as integer
+INPUT limit
+DECLARE sum as integer
+DECLARE num as integer
+num =0
+
+FOR each num UPTO limit
+
+   if(num%2==0) THEN
+	{
+         sum=sum+num;
+	}
+
+END FOR
+
+Print sum;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
