@@ -115,7 +115,7 @@ using System;
 ------------------------------------------------------
 
 
-4. CountMin6DigitsSalariedDoctors(salaries, size)
+3. CountMin6DigitsSalariedDoctors(salaries, size)
 ---------------------------------------
 
 function IsDoctorSalaryMin6Digits(doctorSalary):
@@ -213,7 +213,7 @@ class TestCountMin6DigitsSalariedDoctorsAnnMariya
 
 
 
-ReadAndCountDoctorsMin6DigitsSalaried(): without array 
+4.ReadAndCountDoctorsMin6DigitsSalaried(): without array 
 
 ------------------------------------------------------
 
@@ -302,7 +302,7 @@ class TestCountMin6DigitsSalariedDoctorsAnnMariya
 
 
 
-ReadAndFindMinSalaryOfNDoctors() without array
+5-ReadAndFindMinSalaryOfNDoctors() without array
 
 ----------------------------------------------------
 Pseudocode:
@@ -362,39 +362,111 @@ class FindMinSalaryOfDoctor
 
 =============================================================
 
- 8. ReadAndFindSumOfDoctorsSalariesTillZero() use do..while loop 
+ 6- ReadAndFindSumOfDoctorsSalariesTillZero() use do..while loop 
 
 --------------------------------------------------------------
 
-ReadAndFindSumOfDoctorsSalariesTillZero: without array 
-    [sal1, sal2, ... 0]
-    
-    loop pick : for | while | do..while 
-
 function ReadAndFindSumOfDoctorsSalariesTillZero()
     sum = 0 
     do 
         input salary 
-        if !(salary > 0 || salary == 0) //Invalid salary
-            print "Input valid salary"
-            continue 
-        end if 
-        sum += salary 
-    while salary != 0
-    print sum 
-
-// Rule: If zero, we should sum up 
-function ReadAndFindSumOfDoctorsSalariesTillZero()
-    sum = 0 
-    do 
-        input salary 
-        if !(salary > 0 || salary == 0) //Invalid salary
+        if !(salary > 0 || salary == 0)
             print "Input valid salary"
             continue 
         end if 
         
-        if salary != 0 // Business Rule 
+        if salary != 0 
             sum += salary
         end if  
     while salary != 0
     print sum 
+-----------------------------------------
+code
+class SumOfDoctorSalariesTillZeroUsingDo
+{
+
+    static void ReadAndFindSumOfDoctorsSalariesTillZero()
+    {
+        int sum = 0;
+        int salary;
+
+        do
+        {
+            Console.WriteLine("Enter the doctor's salary (enter 0 to stop): ");
+            string input = Console.ReadLine();
+
+            // Try to parse the input and validate it
+            if (!int.TryParse(input, out salary) || salary < 0)
+            {
+                Console.WriteLine("Input a valid non-negative salary.");
+                continue;
+            }
+
+            if (salary != 0)
+            {
+                sum += salary;
+            }
+        }
+        while (salary != 0);
+
+        Console.WriteLine("Sum of all doctors' salaries: " + sum);
+    }
+ static void Main(string[] args)
+    {
+        ReadAndFindSumOfDoctorsSalariesTillZero();
+    }
+}
+
+
+=====================================================================================
+
+ 7- ReadAndFindSumOfDoctorsSalariesTillZero() use while loop 
+---------------------------------------------------------------
+pseudocode
+----------------------------------------
+function ReadAndFindSumOfDoctorsSalariesTillZero()
+    sum = 0 
+    input salary
+    while salary != 0
+        if (salary < 0) 
+            print "Input valid salary"
+            input salary
+            continue
+        end if        
+        sum += salary
+        input salary
+    end while 
+    print sum 
+
+c#:
+
+class SumOfDoctorSalariesTillZeroUsingWhile
+{
+   static void ReadAndFindSumOfDoctorsSalariesTillZero()
+   {
+      int sum = 0;
+      int salary = int.Parse(Console.ReadLine());
+      while(salary != 0)
+      {
+         if(salary<0)
+         {
+           Console.WriteLine("Input valid salary");
+            salary = int.Parse(Console.ReadLine());
+           continue;
+         }
+         else
+         {
+           sum += salary;
+           salary = int.Parse(Console.ReadLine());
+
+         }
+       }
+      Console.WriteLine("Sum of all doctors' salaries: " + sum);
+    }
+ static void Main(string[] args)
+    {
+        ReadAndFindSumOfDoctorsSalariesTillZero();
+    }
+
+}
+
