@@ -1,0 +1,400 @@
+1-08-2024
+------------------------
+
+    1. IsDoctorSalaryMin6Digits(doctorSalary)
+-----------------------
+
+function IsDoctorSalaryMin6Digit(doctorSalary)
+	return doctorSalary>100000
+
+function TestIsDoctorSalary6Digit()
+
+   Input doctorSalary
+	if IsDoctorSalary6MinDigit(doctorsalary)
+	print "Doctor has 6 digit salary
+	end if
+
+
+
+code:
+
+using System;
+
+ class Program
+{
+    // Function to check if the doctor's salary is at least 6 digits
+    public static bool IsDoctorSalaryMin6Digit(int doctorSalary)
+    {
+        return doctorSalary >= 100000;
+    }
+
+    // Function to test if the doctor's salary is 6 digits and print the result
+    public static void TestIsDoctorSalary6Digit()
+    {
+        // Input doctorSalary
+        Console.Write("Enter the doctor's salary: ");
+        int doctorSalary=int.Parse(Console.ReadLine());
+       
+            if (IsDoctorSalaryMin6Digit(doctorSalary))
+            {
+                Console.WriteLine("Doctor has a 6 digit salary");
+            }
+            
+    }
+
+    // Main function to run the test
+    public static void Main()
+    {
+        TestIsDoctorSalary6Digit();
+    }
+}
+
+
+
+
+--------------------------------------------------------------
+
+2.TestIsDoctorSalaryMin6DigitsOrNot
+
+-------------------------------
+
+
+function IsDoctorSalaryMin6Digit(doctorSalary)
+	return doctorSalary>100000
+
+function TestIsDoctorSalary6Digit()
+
+   Input doctorSalary
+	if IsDoctorSalary6MinDigit(doctorsalary)
+	print "Doctor has 6 digit salary"
+	else 
+        print "Doctor does not has 6 digit salary"
+
+
+code:
+
+
+using System;
+
+ class Program
+{
+    // Function to check if the doctor's salary is at least 6 digits
+    public static bool IsDoctorSalaryMin6Digit(int doctorSalary)
+    {
+        return doctorSalary >= 100000;
+    }
+
+    // Function to test if the doctor's salary is 6 digits and print the result
+    public static void TestIsDoctorSalary6Digit()
+    {
+        // Input doctorSalary
+        Console.Write("Enter the doctor's salary: ");
+        int doctorSalary=int.Parse(Console.ReadLine());
+       
+            if (IsDoctorSalaryMin6Digit(doctorSalary))
+            {
+                Console.WriteLine("Doctor has a 6 digit salary");
+            }
+            
+            else
+            {
+                Console.WriteLine("Doctor does not has a 6 digit salary");
+            }
+            
+    }
+
+    // Main function to run the test
+    public static void Main()
+    {
+        TestIsDoctorSalary6Digit();
+    }
+}
+
+
+
+------------------------------------------------------
+
+
+4. CountMin6DigitsSalariedDoctors(salaries, size)
+---------------------------------------
+
+function IsDoctorSalaryMin6Digits(doctorSalary):
+    if doctorSalary >= 100000 then
+        return true
+    else
+        return false
+    end if
+end function
+
+function CountMin6DigitsSalariedDoctors(salaries, size):
+    count = 0
+    for I = 0 to size - 1 do
+        if IsDoctorSalaryMin6Digits(salaries[I]) then
+            count = count + 1
+        end if
+    end for
+    return count
+end function
+
+function TestCountMin6DigitsSalariedDoctors():
+    print "Number of Doctors:"
+    size = read integer from input
+    print "Enter one by one doctors salaries."
+    salaries = array of size integers
+    for I = 0 to size - 1 do
+        print "Salary of", (I + 1), "th Doctor:"
+        salaries[I] = read integer from input
+    end for
+    sixDigitsSalariedCount = CountMin6DigitsSalariedDoctors(salaries, size)
+    print "Number of Min 6 Digits Salaried Doctors:", sixDigitsSalariedCount
+end function
+
+function Main():
+    print "------------------------TestCountMin6DigitsSalariedDoctors------------------------------"
+    TestCountMin6DigitsSalariedDoctors()
+    print "------------------------End TestCountMin6DigitsSalariedDoctors------------------------------"
+    print "Press any key to continue..."
+    read any key from input
+end function
+
+------------------------------------------------------------------
+
+
+code
+
+using System;
+
+class TestCountMin6DigitsSalariedDoctorsAnnMariya
+{
+    static bool IsDoctorSalaryMin6Digits(int doctorSalary)
+    {
+        return doctorSalary >= 100000;
+    }
+
+    static int CountMin6DigitsSalariedDoctors(int[] salaries, int size)
+    {
+        int count = 0;
+        for (int I = 0; I <= size - 1; I++)
+        {
+            if (IsDoctorSalaryMin6Digits(salaries[I]))
+            {
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+    static void TestCountMin6DigitsSalariedDoctors()
+    {
+        Console.Write("Number of Doctors:");
+        int size = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter one by one doctors salaries.");
+        int[] salaries = new int[size];
+        for (int I = 0; I <= size - 1; I++)
+        {
+            Console.Write($"Salary of {I + 1}th Doctor:");
+            salaries[I] = int.Parse(Console.ReadLine());
+        }
+        int sixDigitsSalariedCount = CountMin6DigitsSalariedDoctors(salaries, size);
+        Console.WriteLine($"Number of Min 6 Digits Salaried Doctors : {sixDigitsSalariedCount}");
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("------------------------TestCountMin6DigitsSalariedDoctors------------------------------");
+        TestCountMin6DigitsSalariedDoctors();
+        Console.WriteLine("------------------------End TestCountMin6DigitsSalariedDoctors------------------------------");
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+    }
+}
+
+-----------------------------------------------------------
+
+
+
+ReadAndCountDoctorsMin6DigitsSalaried(): without array 
+
+------------------------------------------------------
+
+
+BEGIN
+
+    FUNCTION IsDoctorSalaryMin6Digits(doctorSalary)
+        IF doctorSalary >= 100000 THEN
+            RETURN TRUE
+        ELSE
+            RETURN FALSE
+        END IF
+    END FUNCTION
+
+    FUNCTION CountMin6DigitsSalariedDoctors(size)
+        SET count TO 0
+        FOR I FROM 1 TO size
+            PRINT "Enter salary of doctor " + I
+            INPUT salary
+            IF IsDoctorSalaryMin6Digits(salary) THEN
+                INCREMENT count
+            END IF
+        END FOR
+        RETURN count
+    END FUNCTION
+
+    FUNCTION TestCountMin6DigitsSalariedDoctors()
+        PRINT "Enter the number of doctors:"
+        INPUT size
+        PRINT "Enter the salaries of doctors one by one."
+        SET sixDigitsSalariedCount TO CountMin6DigitsSalariedDoctors(size)
+        PRINT "Number of doctors with at least 6-digit salary: " + sixDigitsSalariedCount
+    END FUNCTION
+
+    CALL TestCountMin6DigitsSalariedDoctors()
+
+END
+
+----------------------------------------------------------
+using System;
+
+class TestCountMin6DigitsSalariedDoctorsAnnMariya
+{
+    static bool IsDoctorSalaryMin6Digits(int doctorSalary)
+    {
+        return doctorSalary >= 100000;
+    }
+
+    static int CountMin6DigitsSalariedDoctors(int size)
+    {
+        int count = 0;
+        for (int I = 0; I < size; I++)
+        {
+            Console.Write($"Salary of {I + 1}th Doctor: ");
+            int salary = int.Parse(Console.ReadLine());
+            if (IsDoctorSalaryMin6Digits(salary))
+            {
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+    static void TestCountMin6DigitsSalariedDoctors()
+    {
+        Console.Write("Number of Doctors: ");
+        int size = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter one by one doctors' salaries.");
+        int sixDigitsSalariedCount = CountMin6DigitsSalariedDoctors(size);
+        Console.WriteLine($"Number of Min 6 Digits Salaried Doctors: {sixDigitsSalariedCount}");
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("------------------------TestCountMin6DigitsSalariedDoctors------------------------------");
+        TestCountMin6DigitsSalariedDoctors();
+        Console.WriteLine("------------------------End TestCountMin6DigitsSalariedDoctors------------------------------");
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+    }
+}
+
+============================================================
+
+=========================================================
+
+
+
+ReadAndFindMinSalaryOfNDoctors() without array
+
+----------------------------------------------------
+Pseudocode:
+function FindMinSalary():
+    MinSalary = salary of first doctor// read salary of first doctor
+    for I = 2 .. size 
+        Input salary
+        
+        if salary < MinSalary then 
+            MinSalary = salary
+        end if 
+
+
+
+--------------------------------------------------------------
+using System;
+
+class FindMinSalaryOfDoctor
+{
+ 
+
+    static int FindMinSalary(int size)
+    {
+        Console.Write($"Salary of 1st Doctor: ");
+        int min = int.Parse(Console.ReadLine());
+        
+        for (int I = 1; I < size; I++)
+        {
+            Console.Write($"Salary of {I+1}th Doctor: ");
+            int salary = int.Parse(Console.ReadLine());
+            if (salary < min)
+            {
+                min = salary;
+            }
+        }
+        return min;
+    }
+
+    static void TestCountMin6DigitsSalariedDoctors()
+    {
+        Console.Write("Number of Doctors: ");
+        int size = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter one by one doctors' salaries.");
+        int minSalary = FindMinSalary(size);
+        Console.WriteLine($"Minimun salary is: {minSalary}");
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("------------------------TestCountMin6DigitsSalariedDoctors------------------------------");
+        TestCountMin6DigitsSalariedDoctors();
+        Console.WriteLine("------------------------End TestCountMin6DigitsSalariedDoctors------------------------------");
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+    }
+}
+
+=============================================================
+
+ 8. ReadAndFindSumOfDoctorsSalariesTillZero() use do..while loop 
+
+--------------------------------------------------------------
+
+ReadAndFindSumOfDoctorsSalariesTillZero: without array 
+    [sal1, sal2, ... 0]
+    
+    loop pick : for | while | do..while 
+
+function ReadAndFindSumOfDoctorsSalariesTillZero()
+    sum = 0 
+    do 
+        input salary 
+        if !(salary > 0 || salary == 0) //Invalid salary
+            print "Input valid salary"
+            continue 
+        end if 
+        sum += salary 
+    while salary != 0
+    print sum 
+
+// Rule: If zero, we should sum up 
+function ReadAndFindSumOfDoctorsSalariesTillZero()
+    sum = 0 
+    do 
+        input salary 
+        if !(salary > 0 || salary == 0) //Invalid salary
+            print "Input valid salary"
+            continue 
+        end if 
+        
+        if salary != 0 // Business Rule 
+            sum += salary
+        end if  
+    while salary != 0
+    print sum 
