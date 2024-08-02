@@ -122,3 +122,79 @@ internal class Program
         Console.ReadKey();
     }
 }
+
+
+--------------------------------------------------------------------------------------------------------
+
+c-do..while
+
+
+Function GetNthTermFibonacciSeries(int numOfTerms)
+initialise num1 = 0 and num2 = 1 and i=1
+if numOfTerms =1
+	return num1;
+end if
+else
+
+	while i < numOfTerms
+		print num1                     
+		initialise temp = num1         
+		num1 = num2                    
+		num2 = temp + num2             
+        	i = i+1;
+	end while
+return num1;
+
+Function PrintNthTermFibonacciSeries()
+    INPUT numOfTerms
+    int ans = PrintFibonacciSeries(numOfTerms)
+    print ans;
+
+
+
+using System;
+using System.Data.SqlTypes;
+
+internal class Program
+{
+    static int GetNthTermFibonacciSeries(int numOfTerms)
+    {
+        int num1 = 0, num2 = 1, i = 1;
+        if (numOfTerms == 1)
+        {
+            return num1;
+        }
+        else
+        {
+            do
+            {
+                int temp = num1;
+                num1 = num2;
+                num2 = temp + num2;
+                i = i + 1;
+            } while (i < numOfTerms);
+         return num1;
+         }
+
+        
+    }
+
+    static void PrintNthTermFibonacciSeries()
+    {
+        Console.Write("Enter number of terms: ");
+        int numOfTerms = int.Parse(Console.ReadLine());
+        Console.Write("Nth term is : ");
+        int ans = GetNthTermFibonacciSeries(numOfTerms);
+
+        Console.WriteLine(ans);
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("--------------------Print series-----------------");
+        PrintNthTermFibonacciSeries();
+        Console.WriteLine("--------------------End series-----------------");
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey();
+    }
+}
