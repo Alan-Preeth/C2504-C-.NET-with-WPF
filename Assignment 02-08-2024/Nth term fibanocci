@@ -6,8 +6,21 @@ Pseudocode
 --------------------
 
 
+Function GetNthTermFibonacciSeries(int numOfTerms)
+initialise num1 = 0 and num2 = 1 and i=0
+while i < numOfTerms
+	print num1                     //0,1,2,3
+	initialise temp = num1         //0,1,2,3
+	num1 = num2                    //1,2,3,5
+	num2 = temp + num2             //2,3,5,8
+        i = i+1;
+end while
+return num1;
 
-
+Function PrintNthTermFibonacciSeries()
+    INPUT numOfTerms
+    int ans = PrintFibonacciSeries(numOfTerms)
+    print ans;
 
 using System;
 using System.Data.SqlTypes;
