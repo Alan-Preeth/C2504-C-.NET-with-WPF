@@ -1,0 +1,54 @@
+For loop
+
+Pseudocode
+
+----------------------
+Function PrintFibonacciSeries(int numOfTerms)
+initialise num1 = 0 and num2 = 1
+for i from 0 to numOfTerms
+	print num1                   //0,1,2,3
+	initialise temp=num1         //0,1,2,3
+	num1 = num2                  //1,2,3,5
+	num2 = temp + num1           //2,3,5,8
+
+
+Function TestPrintFibonacciSeries()
+    INPUT numOfTerms
+    PrintFibonacciSeries(numOfTerms)
+
+
+using System;
+
+internal class Program
+{
+    static void PrintFibonacciSeries(int numOfTerms)
+    {
+        int a = 0, b = 1;
+        for (int i = 0; i < numOfTerms; i++)
+        {
+            Console.Write($"{a}, ");
+            int temp = a;
+            a = b;
+            b = temp + b;
+        }
+    }
+
+    static void TestPrintFibonacciSeries()
+    {
+        Console.Write("Enter number of terms: ");
+        int numOfTerms = int.Parse(Console.ReadLine());
+        Console.Write("Series: ");
+        PrintFibonacciSeries(numOfTerms);
+        Console.WriteLine();
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("--------------------Print series-----------------");
+        TestPrintFibonacciSeries();
+        Console.WriteLine("--------------------End series-----------------");
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey();
+    }
+}
+
