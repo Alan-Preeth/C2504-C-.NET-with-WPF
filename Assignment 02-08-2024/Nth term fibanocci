@@ -9,7 +9,7 @@ Pseudocode
 Function GetNthTermFibonacciSeries(int numOfTerms)
 initialise num1 = 0 and num2 = 1 and i=1
 while i < numOfTerms
-	print num1                     
+	                    
 	initialise temp = num1         
 	num1 = num2                    
 	num2 = temp + num2             
@@ -136,14 +136,16 @@ if numOfTerms =1
 end if
 else
 
-	while i < numOfTerms
-		print num1                     
+	do
+		                   
 		initialise temp = num1         
 		num1 = num2                    
 		num2 = temp + num2             
         	i = i+1;
-	end while
+	 while i < numOfTerms
+	 
 return num1;
+end if
 
 Function PrintNthTermFibonacciSeries()
     INPUT numOfTerms
