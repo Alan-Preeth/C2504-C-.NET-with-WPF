@@ -6,9 +6,28 @@
 
 
 For loop
+-----------------------------
 
 Pseudocode
 
+function PrintPattern(int numOfTerms)
+
+	for i =1 to numOfTerms
+		for j =numOfTerms ; j > 0 ;j -- //to print spaces in front
+			print blank space;
+		end for j
+		for k =numOfTerms ; k > numOfTerms-i ; k++
+			print k;
+		end for k
+	move to next line
+	end for i
+
+function TestPrintPattern()
+
+	INPUT numberOfTerms
+	
+	PrintPattern(numOfTerms)
+================================================
 
 using System;
 
@@ -53,3 +72,60 @@ namespace Series
         }
     }
 }
+
+
+===============================================================================================================================================
+While loop
+
+
+
+using System;
+
+namespace Series
+{
+    internal class Program
+    {
+        static void PrintPattern(int numOfTerms)
+        {
+            int i = 1;
+            while(i <= numOfTerms)
+            {
+                int j = numOfTerms - i;
+                while( j > 0)
+                {
+                    Console.Write("  ");
+                    j--;
+                }
+                int k = numOfTerms;
+                while (k > numOfTerms - i)
+                {
+                    Console.Write(k + " ");
+                    k--;    
+                }
+                // Move to the next line
+                Console.WriteLine();
+                i++;    
+            }
+        }
+
+        static void TestPrintPattern()
+        {
+            Console.Write("Enter number of terms: ");
+            int numOfTerms = int.Parse(Console.ReadLine());
+            PrintPattern(numOfTerms);
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("--------------------Print Pattern-----------------");
+            TestPrintPattern();
+            Console.WriteLine("--------------------End Pattern-----------------");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
+    }
+}
+
+
+========================================================================================================================================================
