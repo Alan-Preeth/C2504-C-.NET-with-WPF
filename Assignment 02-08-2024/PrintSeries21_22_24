@@ -1,0 +1,188 @@
+P2. print the N th term in the series 21, 22, 24, 27, 31, ...
+    Q4: use for loop
+    Q5: use while loop
+    Q6: use do..while loop
+
+
+function PrintSeries21_22_24(int numOfTerms)
+
+	term = 21
+	for I = 1 ; I < numOfTerms ; I++
+		print term + " "
+		term = term + I;
+	end for
+
+function TestPrintSeries21_22_24()
+	
+	INPUT numOfTerms
+	PrintSeries21_22_24(numOfTerms)
+
+-------------------------------------------------------------------
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Series
+{
+    internal class Program
+    {
+        static void PrintSeries21_22_24(int numOfTerms)
+        {
+            int term = 21;
+            for (int I = 1; I <= numOfTerms; I++)
+            {
+                Console.Write($"{term} ,");
+
+                term = term + I;
+            }
+        }
+
+        static void TestPrintSeries21_22_24()
+        {
+            Console.Write("Enter number of terms");
+            int numOfTerms = int.Parse(Console.ReadLine());
+            Console.Write("Series:");
+            PrintSeries21_22_24(numOfTerms);
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("--------------------Print series-----------------");
+            TestPrintSeries21_22_24();
+            Console.WriteLine("--------------------Endseries-----------------");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
+    }
+
+}
+---------------------------------------------------------------
+
+b.while loop
+
+
+
+function PrintSeries21_22_24(int numOfTerms)
+
+	term = 21
+	Initialize I = 1 
+        while (I < numOfTerms )
+		print term + " "
+		term = term + I;
+		I = I + 1;
+	end while
+
+function TestPrintSeries21_22_24()
+	
+	INPUT numOfTerms
+	PrintSeries21_22_24(numOfTerms)
+
+
+------------------------------------------------------------------
+
+
+using System;
+internal class Program
+{
+    static void PrintSeries21_22_24(int numOfTerms)
+    {
+        int term = 21;
+        int I = 1; 
+        while(I <= numOfTerms)
+        {
+            Console.Write($"{term} ,");
+
+            term = term + I;
+
+            I++;
+        }
+    }
+
+    static void TestPrintSeries21_22_24()
+    {
+        Console.Write("Enter number of terms");
+        int numOfTerms = int.Parse(Console.ReadLine());
+        Console.Write("Series:");
+        PrintSeries21_22_24(numOfTerms);
+        Console.WriteLine();
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("--------------------Print series-----------------");
+        TestPrintSeries21_22_24();
+        Console.WriteLine("--------------------Endseries-----------------");
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey();
+    }
+}
+
+
+-------------------------------------------------------------------
+
+c-using do---while loop
+
+pseudocode:
+
+function PrintSeries21_22_24(int numOfTerms)
+
+	term = 21
+	Initialize I = 1 
+        do 
+		print term + " "
+		term = term + I;
+		I = I + 1;
+	 while(I < numOfTerms )
+
+function TestPrintSeries21_22_24()
+	
+	INPUT numOfTerms
+	PrintSeries21_22_24(numOfTerms)
+
+
+
+
+
+
+
+using System;
+internal class Program
+{
+    static void PrintSeries21_22_24(int numOfTerms)
+    {
+        int term = 21;
+        int I = 1; 
+        do
+        {
+            Console.Write($"{term} ,");
+
+            term = term + I;
+
+            I++;
+        }while(I <= numOfTerms);
+    }
+
+    static void TestPrintSeries21_22_24()
+    {
+        Console.Write("Enter number of terms");
+        int numOfTerms = int.Parse(Console.ReadLine());
+        Console.Write("Series:");
+        PrintSeries21_22_24(numOfTerms);
+        Console.WriteLine();
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("--------------------Print series-----------------");
+        TestPrintSeries21_22_24();
+        Console.WriteLine("--------------------Endseries-----------------");
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey();
+    }
+}
