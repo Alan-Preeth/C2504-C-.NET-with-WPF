@@ -1,0 +1,45 @@
+     
+
+using System;
+
+namespace Series
+{
+    internal class Program
+    {
+        static void PrintPattern(int numOfTerms)
+        {
+            for (int i = 1; i <= numOfTerms; i++)
+            {   
+               
+                for (int j = numOfTerms - i; j > 0; j--)
+                {
+                    Console.Write("  ");
+                }
+                
+                for (int k = numOfTerms; k > numOfTerms - i; k--)
+                {
+                    Console.Write(k + " ");
+                }
+               
+                Console.WriteLine();
+            }
+        }
+
+        static void TestPrintPattern()
+        {
+            Console.Write("Enter number of terms: ");
+            int numOfTerms = int.Parse(Console.ReadLine());
+            PrintPattern(numOfTerms);
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("--------------------Print Pattern-----------------");
+            TestPrintPattern();
+            Console.WriteLine("--------------------End Pattern-----------------");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+        }
+    }
+}
