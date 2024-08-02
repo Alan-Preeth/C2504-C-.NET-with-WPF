@@ -77,7 +77,30 @@ namespace Series
 ===============================================================================================================================================
 While loop
 
+================
+function PrintPattern(int numOfTerms)
+  initialise i=1
+	while i <= numOfTerms
+		   initialise j =numOfTerms ;
+           while j > 0 
+          print a blank space
+           j -- 
+		       end while j
+		    initialise k =numOfTerms
+            while k>numOfTerm-i
+            print k;
+            k--;
+		        end while k
+	      move to next line
+        i++;
+	end while i
 
+function TestPrintPattern()
+
+	INPUT numberOfTerms
+	
+	PrintPattern(numOfTerms)
+=====================================================================
 
 using System;
 
