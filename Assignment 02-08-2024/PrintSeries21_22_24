@@ -4,15 +4,16 @@ P2. print the N th term in the series 21, 22, 24, 27, 31, ...
     Q6: use do..while loop
 
 
-function PrintSeries21_22_24(int numOfTerms)
+function PrintNTermSeries21_22_24(int numOfTerms)
 
 	term = 21
 	for I = 1 ; I < numOfTerms ; I++
-		print term + " "
+		
 		term = term + I;
 	end for
+	print term;
 
-function TestPrintSeries21_22_24()
+function PrintNTermSeries21_22_24()
 	
 	INPUT numOfTerms
 	PrintSeries21_22_24(numOfTerms)
@@ -31,31 +32,33 @@ namespace Series
 {
     internal class Program
     {
-        static void PrintSeries21_22_24(int numOfTerms)
+        static void PrintNTermSeries21_22_24(int numOfTerms)
         {
             int term = 21;
             for (int I = 1; I <= numOfTerms; I++)
             {
-                Console.Write($"{term} ,");
-
-                term = term + I;
+                
+              term = term + I;
             }
+
+            Console.WriteLine(term);
+            
         }
 
-        static void TestPrintSeries21_22_24()
+        static void TestPrintNTermSeries21_22_24()
         {
             Console.Write("Enter number of terms");
             int numOfTerms = int.Parse(Console.ReadLine());
-            Console.Write("Series:");
-            PrintSeries21_22_24(numOfTerms);
+            Console.Write("Nth term is:");
+            PrintNTermSeries21_22_24(numOfTerms);
             Console.WriteLine();
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("--------------------Print series-----------------");
-            TestPrintSeries21_22_24();
-            Console.WriteLine("--------------------Endseries-----------------");
+            Console.WriteLine("--------------------Print Nth term-----------------");
+            TestPrintNTermSeries21_22_24();
+            Console.WriteLine("--------------------End-----------------");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
@@ -68,17 +71,17 @@ b.while loop
 
 
 
-function PrintSeries21_22_24(int numOfTerms)
+function PrintNTermSeries21_22_24(int numOfTerms)
 
 	term = 21
 	Initialize I = 1 
         while (I < numOfTerms )
-		print term + " "
+		
 		term = term + I;
 		I = I + 1;
 	end while
-
-function TestPrintSeries21_22_24()
+	print term 
+function PrintNTermSeries21_22_24()
 	
 	INPUT numOfTerms
 	PrintSeries21_22_24(numOfTerms)
@@ -90,34 +93,34 @@ function TestPrintSeries21_22_24()
 using System;
 internal class Program
 {
-    static void PrintSeries21_22_24(int numOfTerms)
+    static void PrintNTermSeries21_22_24(int numOfTerms)
     {
         int term = 21;
         int I = 1; 
         while(I <= numOfTerms)
         {
-            Console.Write($"{term} ,");
 
             term = term + I;
 
             I++;
         }
+	 Console.WriteLine(term);
     }
 
-    static void TestPrintSeries21_22_24()
+    static void TestPrintNTermSeries21_22_24()
     {
         Console.Write("Enter number of terms");
         int numOfTerms = int.Parse(Console.ReadLine());
-        Console.Write("Series:");
-        PrintSeries21_22_24(numOfTerms);
+        Console.Write("Nth term is:");
+        PrintNTermSeries21_22_24(numOfTerms);
         Console.WriteLine();
     }
 
     static void Main(string[] args)
     {
-        Console.WriteLine("--------------------Print series-----------------");
-        TestPrintSeries21_22_24();
-        Console.WriteLine("--------------------Endseries-----------------");
+        Console.WriteLine("--------------------Print N th term-----------------");
+        TestPrintNTermSeries21_22_24();
+        Console.WriteLine("--------------------End-----------------");
         Console.WriteLine("Press any key to continue");
         Console.ReadKey();
     }
@@ -130,17 +133,18 @@ c-using do---while loop
 
 pseudocode:
 
-function PrintSeries21_22_24(int numOfTerms)
+function PrintNTermSeries21_22_24(int numOfTerms)
 
 	term = 21
 	Initialize I = 1 
         do 
-		print term + " "
+		
 		term = term + I;
 		I = I + 1;
 	 while(I < numOfTerms )
+	print term;
 
-function TestPrintSeries21_22_24()
+function TestPrintNTermSeries21_22_24()
 	
 	INPUT numOfTerms
 	PrintSeries21_22_24(numOfTerms)
@@ -154,7 +158,7 @@ function TestPrintSeries21_22_24()
 using System;
 internal class Program
 {
-    static void PrintSeries21_22_24(int numOfTerms)
+    static void PrintNTermSeries21_22_24(int numOfTerms)
     {
         int term = 21;
         int I = 1; 
@@ -166,22 +170,23 @@ internal class Program
 
             I++;
         }while(I <= numOfTerms);
+	 Console.Write(term);
     }
 
-    static void TestPrintSeries21_22_24()
+    static void TestPrintNTermSeries21_22_24()
     {
         Console.Write("Enter number of terms");
         int numOfTerms = int.Parse(Console.ReadLine());
-        Console.Write("Series:");
-        PrintSeries21_22_24(numOfTerms);
+        Console.Write("N th term is:");
+        PrintNTermSeries21_22_24(numOfTerms);
         Console.WriteLine();
     }
 
     static void Main(string[] args)
     {
-        Console.WriteLine("--------------------Print series-----------------");
-        TestPrintSeries21_22_24();
-        Console.WriteLine("--------------------Endseries-----------------");
+        Console.WriteLine("--------------------Print pattern-----------------");
+        TestPrintNTermSeries21_22_24();
+        Console.WriteLine("--------------------End-----------------");
         Console.WriteLine("Press any key to continue");
         Console.ReadKey();
     }
