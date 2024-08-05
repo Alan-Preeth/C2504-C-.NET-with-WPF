@@ -1,0 +1,334 @@
+CREATE DATABASE emp_search_db
+
+USE emp_search_db
+
+--create employee department
+
+CREATE TABLE DEPT (
+    DEPTNO INT PRIMARY KEY,
+    DNAME VARCHAR(50),
+    LOC VARCHAR(50)
+);
+
+--insert into employee table
+
+INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES
+(10, 'ACCOUNTING', 'NEW YORK'),
+(20, 'RESEARCH', 'DALLAS'),
+(30, 'SALES', 'CHICAGO'),
+(40, 'OPERATIONS', 'BOSTON');
+
+-- create table employee
+
+CREATE TABLE EMP (
+    EMPNO INT PRIMARY KEY,
+    ENAME VARCHAR(50),
+    JOB VARCHAR(50),
+    MGR INT,
+    HIREDATE DATE,
+    SAL DECIMAL(10, 2),
+    COMM DECIMAL(10, 2),
+    DEPTNO INT,
+    FOREIGN KEY (DEPTNO) REFERENCES DEPT(DEPTNO)
+);
+
+
+INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES
+(7369, 'SMITH', 'CLERK', 7902, '2010-12-17', 800.00, NULL, 20),
+(7499, 'ALLEN', 'SALESMAN', 7698, '2011-02-20', 1600.00, 300.00, 30),
+(7521, 'WARD', 'SALESMAN', 7698, '2011-02-22', 1250.00, 500.00, 30),
+(7566, 'JONES', 'MANAGER', 7839, '2011-04-02', 2975.00, NULL, 20),
+(7654, 'MARTIN', 'SALESMAN', 7698, '2011-09-28', 1250.00, 1400.00, 30),
+(7698, 'BLAKE', 'MANAGER', 7839, '2011-05-01', 2850.00, NULL, 30),
+(7782, 'CLARK', 'MANAGER', 7839, '2011-06-09', 2450.00, NULL, 10),
+(7788, 'SCOTT', 'ANALYST', 7566, '2012-12-09', 3000.00, NULL, 20),
+(7839, 'KING', 'PRESIDENT', NULL, '2011-11-17', 5000.00, NULL, 10),
+(7844, 'TURNER', 'SALESMAN', 7698, '2011-09-08', 1500.00, 0.00, 30),
+(7876, 'ADAMS', 'CLERK', 7788, '2013-01-12', 1100.00, NULL, 20),
+(7900, 'JAMES', 'CLERK', 7698, '2011-12-03', 950.00, NULL, 30),
+(7902, 'FORD', 'ANALYST', 7566, '2011-12-03', 3000.00, NULL, 20),
+(7934, 'MILLER', 'CLERK', 7782, '2012-01-23', 1300.00, NULL, 10);
+
+--select all employees
+
+SELECT * FROM EMP;
+
+--Select employees from a specific department
+
+SELECT * FROM EMP WHERE DEPTNO =20;
+
+--sorty emp by name z-a
+
+SELECT * FROM EMP ORDER BY ENAME DESC;
+
+--sort by name and salary ascending
+
+SELECT EMPNO , ENAME, JOB, MGR ,HIREDATE ,SAL  ,COMM, DEPTNO FROM EMP ORDER BY SAL , ENAME;
+
+
+-- display employee name,job,sal,comm,gross slalary
+--SAL + numm COMM gives null
+
+SELECT EMPNO, ENAME, JOB ,SAL, COMM ,SAL+ COMM
+FROM EMP;
+
+--MAKE NULL COMM AS ZERO
+SELECT EMPNO, ENAME, JOB ,SAL, isnull(COMM,0) AS COMM ,SAL+ COMM
+FROM EMP;
+
+--now to return the total as gross salary and not null is
+
+SELECT EMPNO, ENAME, JOB ,SAL, isnull(COMM,0) AS COMM ,SAL+ isnull(COMM , 0) as GROSSSAL
+FROM EMP;
+
+-- calculate comm percentage in salary
+SELECT EMPNO, ENAME, JOB ,SAL, isnull(COMM,0) AS COMM , isnull(COMM , 0) /( isnull(COMM , 0) + SAL) *100.0  as COMMPER
+FROM EMP;
+
+-- TO display diff between any date and today in years
+
+SELECT '2001-04-18' BIRTH_DATE ,   getdate() TODAY_DATE,
+  DATEDIFF(YEAR , '2001-04-18' ,getdate()) AGE;
+
+--display employee experience in years
+
+SELECT EMPNO ,ENAME ,HIREDATE , DATEDIFF(YEAR , HIREDATE ,getdate()) as EXPERIENCE
+FROM EMP;
+
+--display employee experience in years and max age as 50
+SELECT EMPNO ,ENAME ,HIREDATE , DATEDIFF(YEAR , HIREDATE ,getdate()) as EXPERIENCE , 50 as MAX_AGE
+FROM EMP;
+
+
+--display employees whose salary is above 2500
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL<2500;
+
+--display employees whose salary is above 2500
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL > 2500;
+
+--display employees whose salary is below or equal
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL <= 2500;
+
+--display employees whose salary is above or equal 2500
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL >= 2500;
+
+--diaply employees whose salary is 3000
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL =3000;
+
+--diaply employees whose salary is not equal 3000
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL =3000;
+
+--display employees whose salary is  any of 3000,1250
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL IN (3000,1250);
+
+
+--display employees whose salary is not any of 3000,1250
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL !=3000 AND SAL !=1250;
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL NOT IN(3000,1250);
+
+--disaply employees whose salary is between 2000 and 3500
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL > 2000 AND SAL < 3500;
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL BETWEEN 2000 AND 3500 ;
+
+--display employees whose salary is not between 2000 and 3500
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL < 2000 OR SAL<3500;
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE SAL NOT BETWEEN 2000 AND 3500;
+
+--display employees whose names start with 'S'
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE ENAME LIKE 'S%' ;
+
+-- DIPLAY NAME OF EMPLOYEES WHOSE NAME END WITH 'D'
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE ENAME LIKE '%D' ;
+
+--DISPLAY NAME OF EMPLOYEE WHOSE NAME CONTAINS AM
+
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE ENAME LIKE '%AM%';
+
+--DISPLAY NAMES OF EMPLOYEES WHOSE NAME DOES NOT START WITH 'S'
+SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM FROM EMP WHERE ENAME NOT LIKE '%S';
+
+
+
+
+--agregators | compute min/max/sum/avg.count from many rows
+
+--COUNT | SUM |AVG |MIN |MAX
+
+--to find number of departments
+
+SELECT COUNT(*) AS NUM_OF_DEPT FROM DEPT;
+
+--to find number of EMPLOYEES
+
+
+SELECT COUNT(*) AS NUM_OF_EMPLOYEES FROM EMP;
+
+--tp find total salaries
+
+SELECT SUM(SAL) AS TOT_SAL FROM EMP;
+
+--to find avg salary
+
+SELECT SUM(SAL) / COUNT(*) AS AVG_SALARY FROM EMP;
+
+--tofind minimum salary
+
+SELECT MIN(SAL) AS MIN_SAL FROM EMP;
+
+--to find maximum salary
+
+SELECT MAX(SAL) AS MAX_SAL FROM EMP;
+
+--to find avg experience
+
+SELECT
+COUNT(*) AS NUM_OF_EMP , 
+SUM(DATEDIFF(YEAR , HIREDATE , GETDATE())) AS TOT_EXP,
+AVG ( DATEDIFF (YEAR , HIREDATE , GETDATE ())) AS AVG_EXP
+FROM EMP;
+
+
+--to display diff between min and max salary
+
+SELECT MAX(SAL) - MIN(SAL) AS DIFF_OF_SAL 
+FROM EMP;
+
+
+--to find total salary of job sales person
+
+SELECT SUM(SAL) AS TOT_SAL_SALES 
+FROM EMP
+WHERE JOB ='SALESMAN';
+
+
+--diff between distinct and usual
+
+SELECT JOB FROM EMP;
+
+SELECT DISTINCT JOB FROM EMP;
+
+--to display distinct jobs without distinct
+
+SELECT JOB 
+FROM EMP 
+GROUP BY JOB;
+
+
+--TO FIND EACH JOB TITLE TOTAL SALARY
+
+SELECT JOB, SUM(SAL)
+FROM EMP
+GROUP BY JOB;
+
+--to find each department number avg salary and max salary
+
+SELECT DEPTNO , AVG(SAL) AS DEPT_AVG_SAL ,
+MAX(SAL) AS DEPT_MAX_SALARY
+FROM EMP
+GROUP BY DEPTNO;
+
+--FIND EXPERIENCE BASED TOTAL SALARY
+
+SELECT DATEDIFF(YEAR , HIREDATE ,GETDATE()) AS EXPERIENCE , SUM(SAL) AS EXP_SALARY
+FROM EMP 
+GROUP BY DATEDIFF ( YEAR, HIREDATE,GETDATE())
+
+
+--to find deptno total salary and total salary below 5000
+
+--step 1 find deptno based tot sal
+
+SELECT DEPTNO,SUM(SAL) AS DEPT_SAL
+FROM EMP
+GROUP BY DEPTNO
+HAVING DEPT_SAL <9000;
+
+
+
+
+--to find job total salary below 6000 and sort by job name z-a
+
+SELECT JOB, SUM(SAL)
+FROM EMP
+GROUP BY JOB 
+HAVING SUM(SAL) < 6000
+ORDER BY JOB DESC;
+
+--TP FIND DEPT BASED AND JOB BASES TOTAL SALARY
+--SORT BY DEPT THEN BY JOB
+
+--max salary getter
+  --step 1; find max salary
+  SELECT MAX(SAL) FROM EMP;
+   --step 2:
+
+   SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM 
+   FROM EMP
+   WHERE SAL=(SELECT MAX(SAL) FROM EMP);
+
+   --MIN SALARY GETTER
+
+      SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM 
+
+      FROM EMP
+      WHERE SAL=(SELECT MIN(SAL) FROM EMP);
+
+--below or equal avg salary
+
+      SELECT EMPNO ,ENAME, JOB, SAL ,HIREDATE,MGR,COMM 
+
+      FROM EMP
+      WHERE SAL <=(SELECT AVG(SAL) FROM EMP);
+
+
+
+      --join(to get data of matching rows of two or more tables
+      
+      -- disp empno,deptno,empname,deptname
+
+      SELECT EMP.EMPNO ,EMP.ENAME ,EMP.DEPTNO ,DEPT.DNAME
+
+      FROM EMP
+           INNER JOIN DEPT ON ( EMP.DEPTNO =DEPT.DEPTNO)
+
+           --TO DISPLAY EMPLOYEE NAME AND LOCATION OF EMPLOYEE
+
+           SELECT e.ENAME , d.LOC
+
+           FROM EMP AS e
+             inner join DEPT AS d on (e.DEPTNO =d.DEPTNO);
+
+
+             --TO COUNT LOCATION BASED EMPLOYEE
+
+             SELECT d.LOC, COUNT(*) AS LOC_EMPLOYEE_COUNT
+
+           FROM EMP AS e
+             inner join DEPT AS d on (e.DEPTNO =d.DEPTNO)
+             GROUP BY d.LOC;
+
+
+             --to count dept name based emp
+
+             
+             SELECT d.DNAME ,COUNT(*) AS DNAME_EMPS_COUNT
+
+           FROM EMP AS e
+             inner join DEPT AS d on (e.DEPTNO =d.DEPTNO)
+             GROUP BY d.DNAME;
+
+
